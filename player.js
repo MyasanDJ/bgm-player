@@ -1,3 +1,16 @@
+const cover=document.getElementById("coverImg");
+
+cover.onerror=()=>{
+
+    cover.src="cover.jpg";
+
+    cover.onerror=()=>{
+
+        cover.style.display="none";
+
+    };
+
+};
 const player=document.getElementById("player");
 const audio=document.getElementById("audio");
 const play=document.getElementById("play");
