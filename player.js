@@ -36,6 +36,8 @@ play.innerHTML="⏸ 停止";
 
 player.classList.add("playing");
 
+  startVisualizer();
+
 }else{
 
 audio.pause();
@@ -44,11 +46,15 @@ play.innerHTML="▶ 再生";
 
 player.classList.remove("playing");
 
+  stopVisualizer();
+
 }
 
 };
 
 audio.onended=()=>{
+
+  stopVisualizer();
 
 player.classList.remove("playing");
 
