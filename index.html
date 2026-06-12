@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>BGM Player Mobile Visualizer</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button id="restoreBtn" class="restoreBtn">🎵 BGM</button>
+
+<div id="player" class="player" data-track-title="Fubuking BGM">
+  <div class="topbar">
+    <div class="brand"><span class="hex"></span> BGM PLAYER</div>
+    <div class="topButtons">
+      <button id="moveBtn" title="移動モード">↔</button>
+      <button id="resetBtn" title="位置リセット">⌂</button>
+      <button id="miniBtn" title="最小化">−</button>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="cover">
+      <img id="coverImg" alt="cover">
+      <div class="coverFallback">♪</div>
+    </div>
+
+    <div class="info">
+      <div class="status">NOW PLAYING</div>
+      <div id="title" class="title">Fubuking BGM</div>
+      <div class="format">MP3 / M4A / WAV</div>
+
+      <canvas id="visualizer" width="260" height="70"></canvas>
+
+      <div class="timeRow">
+        <span id="current">0:00</span>
+        <input id="seek" type="range" min="0" value="0">
+        <span id="duration">0:00</span>
+      </div>
+
+      <div class="controls">
+        <button id="play">▶</button>
+        <button id="loop" class="active">🔁</button>
+        <button id="mute">🔊</button>
+      </div>
+
+      <div class="volumeRow">
+        <span>VOL</span>
+        <input id="volume" type="range" min="0" max="100" value="50">
+        <span id="volText">50%</span>
+      </div>
+
+      <div class="mobileNativeBox">
+        <div class="mobileNote">スマホでは端末側の音量ボタン推奨</div>
+        <audio id="nativeAudio" controls loop preload="auto"></audio>
+      </div>
+    </div>
+  </div>
+
+  <audio id="audio" loop preload="auto"></audio>
+</div>
+
+<script src="player.js"></script>
+</body>
+</html>
