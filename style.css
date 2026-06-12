@@ -1,0 +1,73 @@
+*{box-sizing:border-box}
+html,body{margin:0;width:100%;height:100%;overflow:hidden}
+body{
+  background:
+    radial-gradient(circle at top left,#114d7e 0%,transparent 35%),
+    radial-gradient(circle at bottom right,#00324c 0%,transparent 40%),
+    linear-gradient(135deg,#050914,#0a1930 55%,#02050c);
+  color:#fff;
+  font-family:"Segoe UI","Yu Gothic UI",sans-serif;
+}
+body:before{content:"";position:fixed;inset:0;opacity:.07;background-image:linear-gradient(30deg,#75dcff 12%,transparent 12.5%,transparent 87%,#75dcff 87.5%),linear-gradient(150deg,#75dcff 12%,transparent 12.5%,transparent 87%,#75dcff 87.5%);background-size:58px 100px;animation:bgMove 18s linear infinite;pointer-events:none}
+@keyframes bgMove{to{background-position:180px 100px}}
+.restoreBtn{position:fixed;right:24px;bottom:24px;z-index:20;width:86px;height:50px;border:none;border-radius:18px;background:rgba(20,70,110,.82);color:#fff;font-weight:700;border:1px solid rgba(130,225,255,.45);box-shadow:0 0 24px rgba(0,190,255,.45);cursor:pointer;display:none}
+.player{position:fixed;right:24px;bottom:24px;width:560px;max-width:calc(100vw - 32px);border-radius:24px;background:rgba(15,35,60,.68);border:1px solid rgba(130,225,255,.45);box-shadow:0 0 28px rgba(0,190,255,.32),inset 0 0 28px rgba(255,255,255,.04);backdrop-filter:blur(18px);overflow:hidden;transition:.25s ease;z-index:10}
+.player.playing{box-shadow:0 0 18px #55dcff,0 0 52px rgba(0,190,255,.62),inset 0 0 28px rgba(255,255,255,.06)}
+.player.moveMode{outline:2px dashed #69e4ff}
+.topbar{height:48px;display:flex;align-items:center;justify-content:space-between;padding:0 16px;border-bottom:1px solid rgba(150,230,255,.18)}
+.player.moveMode .topbar{cursor:move}
+.brand{font-weight:800;letter-spacing:2px;color:#9feeff;text-shadow:0 0 12px #2acbff}
+.hex{display:inline-block;width:12px;height:12px;margin-right:8px;background:#59d9ff;clip-path:polygon(25% 5%,75% 5%,100% 50%,75% 95%,25% 95%,0 50%);box-shadow:0 0 12px #59d9ff}
+.topButtons button{width:32px;height:32px;margin-left:6px;border:1px solid rgba(180,235,255,.35);border-radius:9px;background:rgba(255,255,255,.08);color:#fff;cursor:pointer}
+.topButtons button.active{background:rgba(80,210,255,.38)}
+.content{display:flex;gap:18px;padding:18px}
+.cover{width:150px;height:150px;border-radius:18px;overflow:hidden;background:rgba(255,255,255,.08);border:1px solid rgba(140,230,255,.25);display:flex;align-items:center;justify-content:center;flex-shrink:0;position:relative}
+.cover img{width:100%;height:100%;object-fit:cover;display:none}.coverFallback{font-size:58px;color:#6be4ff;text-shadow:0 0 18px #6be4ff;position:absolute}
+.info{flex:1;min-width:0}.status{font-size:12px;color:#72e3ff;letter-spacing:2px;margin-bottom:6px}.title{font-size:24px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.format{font-size:12px;color:#b6dfff;margin:6px 0 8px}
+#visualizer{width:100%;height:70px;border-radius:12px;background:rgba(0,0,0,.14)}
+.timeRow,.volumeRow{display:flex;align-items:center;gap:10px;margin-top:10px;font-size:12px;color:#d8f5ff}input[type=range]{flex:1;accent-color:#56d9ff}
+.controls{display:flex;justify-content:center;gap:16px;margin-top:14px}.controls button{width:48px;height:48px;border:1px solid rgba(160,235,255,.35);border-radius:50%;background:rgba(60,190,255,.14);color:#fff;font-size:20px;cursor:pointer;box-shadow:0 0 14px rgba(80,210,255,.22)}.controls button:hover{transform:scale(1.06)}.controls .active{background:rgba(60,190,255,.35)}
+.mobileNote{display:none;font-size:11px;color:#bdefff;text-align:center;line-height:1.5;margin-top:10px}
+.player.hidden{display:none}.player.mini{width:86px;height:86px;border-radius:22px}.player.mini .content,.player.mini .brand,.player.mini #miniBtn,.player.mini #moveBtn,.player.mini #resetBtn{display:none}.player.mini .topbar{height:86px;justify-content:center;cursor:pointer}.player.mini .topButtons button{display:none}.player.mini .topbar:after{content:"🎵";font-size:34px;text-shadow:0 0 18px #5be1ff}
+
+/* スプレッドシート小窓：ジャケット維持 */
+body.sheetPopup{background:#06111f}
+body.sheetPopup:before{opacity:.04}
+body.sheetPopup .player{position:fixed!important;left:8px!important;top:8px!important;right:auto!important;bottom:auto!important;width:calc(100vw - 16px)!important;height:calc(100vh - 16px)!important;max-width:none!important;border-radius:18px}
+body.sheetPopup .topbar{height:34px;padding:0 10px}
+body.sheetPopup .brand{font-size:12px;letter-spacing:1px}
+body.sheetPopup .hex{width:9px;height:9px}
+body.sheetPopup .topButtons #moveBtn,body.sheetPopup .topButtons #resetBtn,body.sheetPopup .topButtons #miniBtn{display:none}
+body.sheetPopup .content{display:flex;gap:10px;padding:10px;height:calc(100% - 34px)}
+body.sheetPopup .cover{display:flex;width:82px;height:82px;border-radius:14px;align-self:flex-start}
+body.sheetPopup .coverFallback{font-size:34px}
+body.sheetPopup .info{min-width:0}
+body.sheetPopup .status{font-size:10px;margin-bottom:2px}
+body.sheetPopup .title{font-size:15px;text-align:left}
+body.sheetPopup .format{display:none}
+body.sheetPopup #visualizer{height:38px;margin-top:5px}
+body.sheetPopup .timeRow{font-size:10px;margin-top:5px}
+body.sheetPopup .controls{margin-top:6px;gap:10px}
+body.sheetPopup .controls button{width:38px;height:38px}
+body.sheetPopup .volumeRow{display:none}
+
+/* スマホ：前の見た目を維持しつつ、スクロール可能・ボタン表示 */
+html.mobile,body.mobile{height:auto;min-height:100%;overflow:auto}
+body.mobile{padding:12px 0 24px}
+body.mobile .player{position:relative!important;left:auto!important;right:auto!important;top:auto!important;bottom:auto!important;width:calc(100vw - 24px)!important;max-width:430px!important;margin:0 auto;border-radius:22px}
+body.mobile .content{flex-direction:column;gap:12px;padding:14px}
+body.mobile .cover{width:100%;height:150px}
+body.mobile .title{text-align:center;font-size:22px}
+body.mobile .status{text-align:center}
+body.mobile .format{text-align:center}
+body.mobile #visualizer{display:block;height:64px}
+body.mobile .timeRow{display:flex}
+body.mobile .controls{display:flex;margin-top:12px}
+body.mobile .volumeRow{display:none}
+body.mobile .mobileNote{display:block}
+body.mobile .topButtons #moveBtn{display:none}
+body.mobile .player.mini{position:fixed!important;left:auto!important;right:16px!important;bottom:16px!important;width:86px!important;margin:0}
+@media(max-width:640px){
+  .player{left:12px!important;right:12px!important;bottom:12px!important;width:auto}
+  .content{flex-direction:column}.cover{width:100%;height:150px}
+}
