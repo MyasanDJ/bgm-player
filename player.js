@@ -44,7 +44,9 @@ const songTitles={
   4:"Howling",
 };
 
+// 実際に入れている曲数
 const totalTracks=4;
+
 const maxTracks=30;
 const exts=[
   {ext:"mp3",type:"audio/mpeg"},
@@ -263,6 +265,13 @@ function nextTrack(autoplay=true){
     loadTrack(1,autoplay);
     return;
   }
+
+  if(currentTrack>=totalTracks){
+    statusText.textContent="BACK TO TRACK 1";
+    loadTrack(1,autoplay);
+    return;
+  }
+
   loadTrack(currentTrack+1,autoplay);
 }
 
