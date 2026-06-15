@@ -38,14 +38,14 @@ const defaultTitle=player.dataset.trackTitle||"BGM";
 
 // 曲名はここを書き換えてください
 const songTitles={
-  1:"1曲目のタイトル",
-  2:"2曲目のタイトル",
-  3:"3曲目のタイトル",
-  4:"4曲目のタイトル",
-  5:"5曲目のタイトル"
+  1:"#あくあ色ぱれっと",
+  2:"海想列車",
+  3:"墓A・RA・SHI",
+  4:"Howling",
+  5:""
 };
 
-const maxTracks=30;
+const maxTracks=5;
 const exts=[
   {ext:"mp3",type:"audio/mpeg"},
   {ext:"m4a",type:"audio/mp4"},
