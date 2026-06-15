@@ -44,7 +44,7 @@ const songTitles={
   4:"Howling",
 };
 
-const maxTracks=30;
+const maxTracks=4;
 const exts=[
   {ext:"mp3",type:"audio/mpeg"},
   {ext:"m4a",type:"audio/mp4"},
