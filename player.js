@@ -4,12 +4,7 @@ const songTitles = {
   2: "海想列車",
   3: "墓A・RA・SHI",
   4: "Howling"
-
-
-
-  
 };
-
 const params=new URLSearchParams(location.search);
 const sheetPopup=params.get("sheet")==="1" || params.get("popup")==="1";
 const safeMode=params.get("safe")==="1";
