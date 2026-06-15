@@ -25,7 +25,17 @@ let trackNo=1, extNo=0, mode="all", loading=false, userStarted=false, usingBgm=f
 let audioCtx,analyser,source,dataArray,raf;
 function candidate(){if(usingBgm){return [{src:"bgm.mp3",type:"audio/mpeg"},{src:"bgm.m4a",type:"audio/mp4"},{src:"bgm.wav",type:"audio/wav"},{src:"bgm.wav",type:"audio/x-wav"}][extNo]} const e=EXT[extNo]; return e?{src:`track${trackNo}.${e.ext}`,type:e.type}:null}
 function setSource(c){audio.innerHTML=`<source src="${c.src}" type="${c.type}">`;audio.load()}
-function updateText(){title.textContent=usingBgm?defaultTitle:`Track ${trackNo}`;trackInfo.textContent=usingBgm?"BGM":`TRACK ${trackNo}`}
+function updateText(){
+  if(currentTrack===0){
+    title.textContent=defaultTitle;
+    trackInfo.textContent="BGM";
+    songTitle.textContent=defaultTitle;
+  }else{
+    title.textContent=`Track ${currentTrack}`;
+    trackInfo.textContent=`TRACK ${currentTrack}`;
+    songTitle.textContent=songTitles[currentTrack] || "";
+  }
+}
 async function loadCover(){coverImg.style.display="none";const bases=usingBgm?["cover"]:[`cover${trackNo}`,"cover"];for(const b of bases){for(const e of ["png","jpg","jpeg"]){const src=`${b}.${e}`;const ok=await fetch(src,{method:"HEAD",cache:"no-store"}).then(r=>r.ok).catch(()=>false);if(ok){coverImg.src=src;coverImg.onload=()=>coverImg.style.display="block";coverImg.onerror=()=>coverImg.style.display="none";return}}}}
 function loadTrack(n,autoplay=true){loading=true;usingBgm=false;trackNo=Math.max(1,n);extNo=0;updateText();loadCover();tryCandidate(autoplay)}
 function loadBgm(autoplay=true){loading=true;usingBgm=true;extNo=0;updateText();loadCover();tryCandidate(autoplay)}
