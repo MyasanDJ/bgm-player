@@ -34,15 +34,14 @@ const canvas=document.getElementById("visualizer");
 const ctx=canvas.getContext("2d");
 const coverImg=document.getElementById("coverImg");
 
-const defaultTitle=player.dataset.trackTitle||"BGM";
+const defaultTitle=player.dataset.trackTitle||"Fubuking Playlist";
 
 // 曲名はここを書き換えてください
 const songTitles={
-  1:"1曲目のタイトル",
-  2:"2曲目のタイトル",
-  3:"3曲目のタイトル",
-  4:"4曲目のタイトル",
-  5:"5曲目のタイトル"
+  1:"#あくあ色ぱれっと",
+  2:"海想列車",
+  3:"墓A・RA・SHI",
+  4:"Howling",
 };
 
 const maxTracks=30;
