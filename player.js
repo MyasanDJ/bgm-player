@@ -34,7 +34,7 @@ const canvas=document.getElementById("visualizer");
 const ctx=canvas.getContext("2d");
 const coverImg=document.getElementById("coverImg");
 
-const defaultTitle=player.dataset.trackTitle||"BGM";
+const defaultTitle=player.dataset.trackTitle||"Fubuking Playlist";
 
 // 曲名はここを書き換えてください
 const songTitles={
