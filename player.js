@@ -1,8 +1,8 @@
 const songTitle = document.getElementById("songTitle");
-1:"#あくあ色ぱれっと"
-2:"海想列車"
-3:"墓A・RA・SHI"
-4:"Howling"
+1: "#あくあ色ぱれっと",
+2: "海想列車",
+3: "墓A・RA・SHI",
+4: "Howling"
 
 
 const params=new URLSearchParams(location.search);
