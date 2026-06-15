@@ -83,3 +83,23 @@ body.sheetPopup .controls button{width:32px;height:32px;font-size:14px}
 body.mobile .trackInfo{text-align:center}
 body.mobile .controls{gap:9px}
 body.mobile .controls button{width:44px;height:44px;font-size:17px}
+
+.songTitle{
+  font-size:11px;
+  color:#c8f3ff;
+  opacity:.9;
+  margin-top:2px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+body.sheetPopup .songTitle{
+  font-size:9px;
+  margin-top:1px;
+}
+
+body.mobile .songTitle{
+  text-align:center;
+  font-size:12px;
+}
