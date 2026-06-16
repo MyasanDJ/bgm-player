@@ -46,7 +46,7 @@ const songTitles={
 };
 
 // 実際に入れている曲数
-const totalTracks=4;
+const totalTracks=5;
 
 const maxTracks=30;
 const exts=[
