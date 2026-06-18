@@ -43,10 +43,11 @@ const songTitles={
   3:"墓A・RA・SHI",
   4:"Howling",
   5:"グローエンブレイス"
+  6:"KONKON Beats by Mio"
 };
 
 // 実際に入れている曲数
-const totalTracks=5;
+const totalTracks=6;
 
 const maxTracks=30;
 const exts=[
