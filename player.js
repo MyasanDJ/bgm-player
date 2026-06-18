@@ -39,8 +39,12 @@ const defaultTitle=player.dataset.trackTitle||"BGM";
 // ★ここだけ編集してください。曲数もここで決まります。
 // src: 音源ファイル名 / title: 大きく表示する曲名 / cover: ジャケット画像
 const playlist=[
-  {src:"track1.mp3", title:"1曲目のタイトル", cover:"cover1.png"},
-  {src:"track2.mp3", title:"2曲目のタイトル", cover:"cover2.png"}
+  {src:"track1.mp3", title:"#あくあ色ぱれっと", cover:"cover1.jpg"},
+  {src:"track2.mp3", title:"海想列車", cover:"cover2.jpg"},
+   {src:"track3.mp3", title:"墓A・RA・SHI", cover:"cover3.png"},
+   {src:"track4.mp3", title:"Howling", cover:"cover4.jpg"},
+   {src:"track5.mp3", title:"グローエンブレイス", cover:"cover5.jpg"},
+   {src:"track6.mp3", title:"KON KON Beats by Mio", cover:"cover6.png"}
 ];
 
 // 3曲目を追加したい場合は、この中に1行追加してください。
