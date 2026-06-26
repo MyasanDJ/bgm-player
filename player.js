@@ -11,8 +11,12 @@ const play=document.getElementById("play"),prevBtn=document.getElementById("prev
 
 // ★ここだけ編集してください。
 const playlist=[
-  {src:"track1.mp3", title:"1曲目のタイトル", cover:"cover1.png"},
-  {src:"track2.mp3", title:"2曲目のタイトル", cover:"cover2.png"}
+  {src:"track1.mp3", title:"#あくあ色ぱれっと", cover:"cover1.jpg"},
+  {src:"track2.mp3", title:"海想列車", cover:"cover2.jpg"},
+  {src:"track1.mp3", title:"墓A・RA・SHI", cover:"cover3.png"},
+  {src:"track1.mp3", title:"Howling", cover:"cover4.jpg"},
+  {src:"track1.mp3", title:"グローエンブレイス", cover:"cover5.jpg"},
+  {src:"track1.mp3", title:"KON KON Beats by Mio", cover:"cover6.png"}
 ];
 
 let audioCtx,analyser,source,dataArray,raf;
