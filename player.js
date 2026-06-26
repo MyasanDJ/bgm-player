@@ -15,8 +15,9 @@ const playlist=[
   {src:"track2.mp3", title:"海想列車", cover:"cover2.jpg"},
   {src:"track3.mp3", title:"墓A・RA・SHI", cover:"cover3.png"},
   {src:"track4.mp3", title:"Howling", cover:"cover4.jpg"},
-  {src:"track5.mp3", title:"グローエンブレイス", cover:"cover5.jpg"},
-  {src:"track6.mp3", title:"KON KON Beats by Mio", cover:"cover6.png"}
+  {src:"track5.mp3", title:"KON KON Beats", cover:"cover7.png"},
+  {src:"track6.mp3", title:"KON KON Beats by Mio", cover:"cover6.png"},
+  {src:"track7.mp3", title:"グローエンブレイス", cover:"cover5.jpg"},
 ];
 
 let audioCtx,analyser,source,dataArray,raf;
