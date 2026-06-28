@@ -17,7 +17,7 @@ const playlist=[
   {src:"track4.mp3", title:"Howling", cover:"cover4.jpg"},
   {src:"track5.mp3", title:"KON KON Beats", cover:"cover7.png"},
   {src:"track6.mp3", title:"KON KON Beats by Mio", cover:"cover6.png"},
-  {src:"track7.mp3", title:"フブミオBeats", cover:"cover.jpg"},
+  {src:"track7.mp3", title:"フブミオBeats", cover:"cover8.png"},
   {src:"track8.mp3", title:"グローエンブレイス", cover:"cover5.jpg"},
   {src:"track9.mp3", title:"大切フォトグラフ", cover:"cover9.jpeg"}
 ];
