@@ -72,19 +72,6 @@ audio.onloadedmetadata=()=>{seek.max=audio.duration||0;duration.textContent=fmt(
 audio.ontimeupdate=()=>{seek.value=audio.currentTime||0;current.textContent=fmt(audio.currentTime)};
 seek.oninput=()=>audio.currentTime=seek.value;
 volume.oninput=()=>{audio.volume=volume.value/100;audio.muted=false;mute.textContent="🔊";volText.textContent=volume.value+"%";save()};
-document.addEventListener("visibilitychange",()=>{
-  if(isMobile || safeMode){
-    if(document.hidden){
-      if(!audio.paused){
-        audio.pause();
-        setStatus("PAUSED");
-      }
-      if(audioCtx && audioCtx.state==="running") audioCtx.suspend().catch(()=>{});
-    }else{
-      syncStatus();
-    }
-  }
-});
 miniBtn.onclick=()=>{player.classList.add("mini");save()};
 player.querySelector(".topbar").ondblclick=()=>{if(!sheetPopup){player.classList.toggle("mini");save()}};
 restoreBtn.onclick=()=>{player.classList.remove("hidden","mini");restoreBtn.style.display="none";save()};
