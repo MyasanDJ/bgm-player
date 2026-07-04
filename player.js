@@ -1,3 +1,31 @@
+// 再生ボタンが押されたタイミング（ユーザー操作の直後）で実行する
+function iosBackgroundAudioHack() {
+    const AudioContext = window.AudioContext || window.webkitAudioContext;
+    if (!AudioContext) return;
+
+    const ctx = new AudioContext();
+    
+    // iOS用の無音バッファを作成 (1秒間の無音データ)
+    const buffer = ctx.createBuffer(1, ctx.sampleRate, ctx.sampleRate);
+    
+    // タブの表示状態が変わった（裏に回った/戻った）時の処理
+    document.addEventListener('visibilitychange', () => {
+        // バックグラウンドでも強制的にAudioContextを「再開」させ続ける
+        if (ctx.state === 'suspended') {
+            ctx.resume();
+        }
+        
+        // 定期的に無音を再生してOSの消音処理を騙す
+        const source = ctx.createBufferSource();
+        source.buffer = buffer;
+        source.connect(ctx.destination);
+        source.start(0);
+    });
+}
+
+// 既存のプレイヤーの「再生開始処理」のどこかでこの関数を呼び出す
+// 例: playButton.addEventListener('click', () => { iosBackgroundAudioHack(); ... });
+
 const params=new URLSearchParams(location.search);
 const sheetPopup=params.get("sheet")==="1" || params.get("popup")==="1";
 const safeMode=params.get("safe")==="1";
@@ -79,7 +107,7 @@ function draw(){raf=requestAnimationFrame(draw);if(!analyser)return;analyser.get
 async function startAudio(){if(!playlist.length){syncStatus();return}setupAudio();if(audioCtx&&audioCtx.state==="suspended")await audioCtx.resume();try{await audio.play();await requestWakeLock();syncStatus();updateMediaSession()}catch(e){setStatus("TAP AGAIN");console.log(e)}}
 function updateLoopButton(){loopBtn.classList.toggle("active",mode!=="none");if(mode==="all"){loopBtn.textContent="🔁";loopBtn.title="全曲ループ"}if(mode==="one"){loopBtn.textContent="🔂";loopBtn.title="1曲ループ"}if(mode==="none"){loopBtn.textContent="➡️";loopBtn.title="流しきり"}}
 function updateShuffleButton(){shuffleBtn.classList.toggle("active",shuffleMode);shuffleBtn.title=shuffleMode?"ランダム再生ON":"ランダム再生OFF"}
-play.onclick=async()=>{if(audio.paused)await startAudio();else audio.pause()};
+play.onclick=async()=>{iosBackgroundAudioHack();if(audio.paused)await startAudio();else audio.pause()};
 prevBtn.onclick=()=>prevTrack();nextBtn.onclick=()=>nextTrack(true);
 loopBtn.onclick=()=>{if(mode==="all")mode="one";else if(mode==="one")mode="none";else mode="all";updateLoopButton();save()};
 shuffleBtn.onclick=()=>{shuffleMode=!shuffleMode;updateShuffleButton();save()};
