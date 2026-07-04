@@ -349,9 +349,11 @@ body.sheetPopup .content {
 
 body.sheetPopup .cover {
   width: 92px;
-  height: 92px;
+  aspect-ratio: 1 / 1;
+  height: auto;
   border-radius: 13px;
   align-self: center;
+  overflow: hidden;
 }
 
 body.sheetPopup .coverFallback {
