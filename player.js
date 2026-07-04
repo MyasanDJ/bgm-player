@@ -1,3 +1,17 @@
+// 例: 変数名が audio または audioElement の場合
+const audio = document.querySelector('audio') || new Audio();
+
+audio.playsInline = true;       // インライン再生を許可（iOSで動画などが全画面になるのを防ぐ）
+audio.muted = false;            // 明示的にミュートを解除
+audio.setAttribute('playsinline', 'true'); 
+
+// iOSのバグ対策：裏で一瞬でも音量が0にならないよう、1.0（最大）を維持
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        audio.volume = 1.0; // バックグラウンド移行時に音量を再設定
+    }
+});
+
 const params=new URLSearchParams(location.search);
 const sheetPopup=params.get("sheet")==="1" || params.get("popup")==="1";
 const safeMode=params.get("safe")==="1";
@@ -11,8 +25,15 @@ const play=document.getElementById("play"),prevBtn=document.getElementById("prev
 
 // ★ここだけ編集してください。
 const playlist=[
-  {src:"track1.mp3", title:"1曲目のタイトル", cover:"cover1.png"},
-  {src:"track2.mp3", title:"2曲目のタイトル", cover:"cover2.png"}
+  {src:"track1.mp3", title:"＃あくあ色ぱれっと", cover:"cover1.jpg"},
+  {src:"track2.mp3", title:"海想列車", cover:"cover2.jpg"},
+  {src:"track3.mp3", title:"墓A・RA・SHI", cover:"cover3.png"},
+  {src:"track4.mp3", title:"Howling", cover:"cover4.jpg"},
+  {src:"track5.mp3", title:"KON KON Beats", cover:"cover7.png"},
+  {src:"track6.mp3", title:"KON KON Beats by Mio", cover:"cover6.png"},
+  {src:"track7.mp3", title:"フブミオBeats", cover:"cover8.png"},
+  {src:"track8.mp3", title:"グローエンブレイス", cover:"cover5.jpg"},
+  {src:"track9.mp3", title:"大切フォトグラフ", cover:"cover9.jpeg"}
 ];
 
 let audioCtx,analyser,source,dataArray,raf;
