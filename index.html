@@ -21,14 +21,13 @@
       <div class="status" id="statusText">READY</div>
       <div id="songTitle" class="songTitle">1曲目のタイトル</div>
       <div id="trackInfo" class="trackInfo">TRACK 1 / 2</div>
-      <div class="format">PLAYLIST / MP3 / M4A / WAV</div>
       <canvas id="visualizer" width="260" height="70"></canvas>
       <div class="timeRow"><span id="current">0:00</span><input id="seek" type="range" min="0" value="0"><span id="duration">0:00</span></div>
       <div class="controls">
         <button id="prev" title="前の曲">⏮</button><button id="play" title="再生/停止">▶</button><button id="next" title="次の曲">⏭</button><button id="loop" class="active" title="全曲ループ">🔁</button><button id="shuffle" title="ランダム再生OFF">🔀</button><button id="mute" title="ミュート">🔊</button>
       </div>
       <div class="volumeRow"><span>VOL</span><input id="volume" type="range" min="0" max="100" value="50"><span id="volText">50%</span></div>
-      <div class="mobileNote">スマホでは端末側の音量ボタン推奨 / バックグラウンド時は自動停止</div>
+      <div class="mobileNote">スマホでは端末側の音量ボタン推奨</div>
     </div>
   </div>
   <audio id="audio" preload="auto"></audio>
