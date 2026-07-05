@@ -821,7 +821,8 @@ body.mobile .player.mini {
   body .cover img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: cover !important;
+    object-fit: contain !important;
+background: rgba(0, 0, 0, 0.25);
   }
 
   body.mobile .info,
@@ -853,12 +854,6 @@ body.mobile .player.mini {
     display: none !important;
   }
 }
-
-
-
-
-
-
 
 
     
