@@ -761,22 +761,25 @@ body.mobile .player.mini {
   }
 }
 
-/* =========================
-   スマホ表示：中央寄せ + ジャケット1:1固定
-   ========================= */
+/* ==============================
+   Mobile layout fix
+   ============================== */
 
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   html,
   body {
     width: 100%;
-    min-height: 100%;
-    height: auto;
+    min-height: 100svh;
+    margin: 0;
     overflow-x: hidden;
-    overflow-y: auto;
   }
 
   body {
-    padding: 28px 0 40px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 18px 0 32px;
+    box-sizing: border-box;
   }
 
   body.mobile .player,
@@ -786,13 +789,39 @@ body.mobile .player.mini {
     right: auto !important;
     top: auto !important;
     bottom: auto !important;
+    transform: none !important;
 
-    width: min(92vw, 430px) !important;
-    max-width: 430px !important;
+    width: min(94vw, 420px) !important;
+    max-width: 420px !important;
     height: auto !important;
+    min-height: 0 !important;
 
     margin: 0 auto !important;
     border-radius: 24px !important;
+    box-sizing: border-box !important;
+  }
+
+  body.mobile .topbar,
+  body .topbar {
+    padding: 18px 20px 14px !important;
+  }
+
+  body.mobile .brand,
+  body .brand {
+    font-size: 18px !important;
+    letter-spacing: 0.22em !important;
+  }
+
+  body.mobile .topButtons,
+  body .topButtons {
+    gap: 10px !important;
+  }
+
+  body.mobile .topButtons button,
+  body .topButtons button {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 14px !important;
   }
 
   body.mobile .content,
@@ -801,13 +830,16 @@ body.mobile .player.mini {
     flex-direction: column !important;
     align-items: center !important;
 
+    width: 100% !important;
+    box-sizing: border-box !important;
+
     gap: 14px !important;
     padding: 18px 16px 22px !important;
   }
 
   body.mobile .cover,
   body .cover {
-    width: min(76vw, 280px) !important;
+    width: min(76vw, 300px) !important;
     height: auto !important;
     aspect-ratio: 1 / 1 !important;
 
@@ -815,14 +847,21 @@ body.mobile .player.mini {
     border-radius: 20px !important;
     align-self: center !important;
     overflow: hidden !important;
+    box-sizing: border-box !important;
   }
 
   body.mobile .cover img,
   body .cover img {
     width: 100% !important;
     height: 100% !important;
-    object-fit: contain !important;
-background: rgba(0, 0, 0, 0.25);
+    display: block !important;
+    object-fit: cover !important;
+  }
+
+  body.mobile .coverFallback,
+  body .coverFallback {
+    width: 100% !important;
+    height: 100% !important;
   }
 
   body.mobile .info,
@@ -831,31 +870,129 @@ background: rgba(0, 0, 0, 0.25);
     text-align: center !important;
   }
 
+  body.mobile .status,
+  body .status {
+    font-size: 14px !important;
+    letter-spacing: 0.24em !important;
+  }
+
   body.mobile .songTitle,
   body .songTitle {
-    text-align: center !important;
-    font-size: 24px !important;
+    font-size: clamp(24px, 7vw, 34px) !important;
+    line-height: 1.18 !important;
+    word-break: keep-all !important;
+    overflow-wrap: anywhere !important;
   }
 
   body.mobile .trackInfo,
-  body .trackInfo,
-  body.mobile .status,
-  body .status {
-    text-align: center !important;
+  body .trackInfo {
+    font-size: 14px !important;
+    letter-spacing: 0.18em !important;
   }
 
   body.mobile #visualizer,
   body #visualizer {
-    display: none !important;
+    width: 100% !important;
+    max-width: 340px !important;
+    height: 54px !important;
   }
 
-  body.mobile .volumeRow,
-  body .volumeRow {
-    display: none !important;
+  body.mobile .timeRow,
+  body .timeRow {
+    width: 100% !important;
+    max-width: 340px !important;
+    display: grid !important;
+    grid-template-columns: auto 1fr auto !important;
+    align-items: center !important;
+    gap: 10px !important;
+  }
+
+  body.mobile #seek,
+  body #seek {
+    width: 100% !important;
+    min-width: 0 !important;
+  }
+
+  body.mobile .controls,
+  body .controls {
+    width: 100% !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 12px !important;
+    flex-wrap: nowrap !important;
+  }
+
+  body.mobile .controls button,
+  body .controls button {
+    width: 50px !important;
+    height: 50px !important;
+    border-radius: 50% !important;
+    flex: 0 0 auto !important;
+  }
+
+  body.mobile #play,
+  body #play {
+    width: 62px !important;
+    height: 62px !important;
+  }
+
+  body.mobile .hint,
+  body .hint {
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+    text-align: center !important;
+    padding: 0 6px !important;
   }
 }
 
 
-    
+/* ==============================
+   Very small phones
+   ============================== */
+
+@media (max-width: 390px) {
+  body {
+    padding-top: 12px;
+  }
+
+  body.mobile .player,
+  body .player {
+    width: min(96vw, 380px) !important;
+    border-radius: 20px !important;
+  }
+
+  body.mobile .content,
+  body .content {
+    padding: 14px 12px 18px !important;
+    gap: 12px !important;
+  }
+
+  body.mobile .cover,
+  body .cover {
+    width: min(72vw, 260px) !important;
+    border-radius: 18px !important;
+  }
+
+  body.mobile .songTitle,
+  body .songTitle {
+    font-size: clamp(22px, 7vw, 30px) !important;
+  }
+
+  body.mobile .controls,
+  body .controls {
+    gap: 9px !important;
+  }
+
+  body.mobile .controls button,
+  body .controls button {
+    width: 46px !important;
+    height: 46px !important;
+  }
+
+  body.mobile #play,
+  body #play {
+    width: 58px !important;
+    height: 58px !important;
   }
 }
