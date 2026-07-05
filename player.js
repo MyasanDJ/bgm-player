@@ -20,7 +20,8 @@ const playlist=[
   {src:"track7.mp3", title:"フブミオBeats", cover:"cover8.png"},
   {src:"track8.mp3", title:"グローエンブレイス", cover:"cover5.jpg"},
   {src:"track9.mp3", title:"大切フォトグラフ", cover:"cover9.jpeg"},
-  {src:"track10.mp3", title:"カミサマ・ネコサマ", cover:"okayu1.jpg"}
+  {src:"track10.mp3", title:"カミサマ・ネコサマ", cover:"okayu1.jpg"},
+  {src:"track11.mp3", title:"WAO!!", cover:"koyori1.png"},
 ];
 
 const MIN_VOLUME=0.1;
