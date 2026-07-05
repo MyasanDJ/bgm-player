@@ -22,7 +22,9 @@ const playlist=[
   {src:"track9.mp3", title:"大切フォトグラフ", cover:"cover9.jpeg"},
   {src:"track10.mp3", title:"カミサマ・ネコサマ", cover:"okayu1.jpg"},
   {src:"track11.mp3", title:"WAO！！", cover:"koyori1.png"},
-  {src:"track12.mp3", title:"ドッタバッタ珍道中！", cover:"mio2.jpg"}
+  {src:"track12.mp3", title:"ドッタバッタ珍道中！", cover:"mio2.jpg"},
+  {src:"track13.mp3", title:"深く紺になる", cover:"mio1.png"},
+  {src:"track14.mp3", title:"ナイトループ", cover:"mio1.png"}
 ];
 
 const MIN_VOLUME=0.1;
