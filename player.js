@@ -19,7 +19,8 @@ const playlist=[
   {src:"track6.mp3", title:"KON KON Beats by Mio", cover:"cover6.png"},
   {src:"track7.mp3", title:"フブミオBeats", cover:"cover8.png"},
   {src:"track8.mp3", title:"グローエンブレイス", cover:"cover5.jpg"},
-  {src:"track9.mp3", title:"大切フォトグラフ", cover:"cover9.jpeg"}
+  {src:"track9.mp3", title:"大切フォトグラフ", cover:"cover9.jpeg"},
+  {src:"track10.mp3", title:"カミサマ・ネコサマ", cover:"okayu1.jpg"}
 ];
 
 const MIN_VOLUME=0.1;
