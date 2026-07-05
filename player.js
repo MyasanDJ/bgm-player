@@ -28,6 +28,7 @@ const playlist=[
   {src:"track15.mp3", title:"Howling by Hoshino", cover:"Hoshino.PNG"}
 ];
 
+
 const MIN_VOLUME=0.1;
 let savedVolume=0.8;
 
