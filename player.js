@@ -11,20 +11,21 @@ const play=document.getElementById("play"),prevBtn=document.getElementById("prev
 
 // ★ここだけ編集してください。
 const playlist=[
-  {src:"track1.mp3", title:"＃あくあ色ぱれっと", cover:"cover1.jpg"},
-  {src:"track2.mp3", title:"海想列車", cover:"cover2.jpg"},
-  {src:"track3.mp3", title:"墓A・RA・SHI", cover:"cover3.png"},
-  {src:"track4.mp3", title:"ナイトループ", cover:"mio1.png"},
-  {src:"track5.mp3", title:"KON KON Beats", cover:"cover7.png"},
-  {src:"track6.mp3", title:"KON KON Beats by Mio", cover:"cover6.png"},
-  {src:"track7.mp3", title:"フブミオBeats", cover:"cover8.png"},
-  {src:"track8.mp3", title:"グローエンブレイス", cover:"cover5.jpg"},
-  {src:"track9.mp3", title:"大切フォトグラフ", cover:"cover9.jpeg"},
+  {src:"track01.mp3", title:"＃あくあ色ぱれっと", cover:"cover1.jpg"},
+  {src:"track02.mp3", title:"海想列車", cover:"cover2.jpg"},
+  {src:"track03.mp3", title:"墓A・RA・SHI", cover:"cover3.png"},
+  {src:"track04.mp3", title:"ドッタバッタ珍道中！", cover:"mio2.jpg"},
+  {src:"track05.mp3", title:"KON KON Beats", cover:"cover7.png"},
+  {src:"track06.mp3", title:"KON KON Beats by Mio", cover:"cover6.png"},
+  {src:"track07.mp3", title:"フブミオBeats", cover:"cover8.png"},
+  {src:"track08.mp3", title:"グローエンブレイス", cover:"cover5.jpg"},
+  {src:"track09.mp3", title:"大切フォトグラフ", cover:"cover9.jpeg"},
   {src:"track10.mp3", title:"カミサマ・ネコサマ", cover:"okayu1.jpg"},
   {src:"track11.mp3", title:"WAO！！", cover:"koyori1.png"},
-  {src:"track12.mp3", title:"ドッタバッタ珍道中！", cover:"mio2.jpg"},
+  {src:"track12.mp3", title:"ナイトループ", cover:"mio1.png"},
   {src:"track13.mp3", title:"深く紺になる", cover:"mio1.png"},
-  {src:"track14.mp3", title:"Howling", cover:"cover4.jpg"}
+  {src:"track14.mp3", title:"Howling", cover:"cover4.jpg"},
+  {src:"track15.mp3", title:"Howling by Hoshino", cover:"Hoshino.png"}
 ];
 
 const MIN_VOLUME=0.1;
