@@ -77,7 +77,11 @@ function drawIdle(){ctx.clearRect(0,0,canvas.width,canvas.height);for(let i=0;i<
 function draw(){raf=requestAnimationFrame(draw);if(!analyser)return;analyser.getByteFrequencyData(dataArray);ctx.clearRect(0,0,canvas.width,canvas.height);const bars=42,w=canvas.width/bars;for(let i=0;i<bars;i++){const v=dataArray[i]||0,h=Math.max(4,(v/255)*canvas.height*.9),g=ctx.createLinearGradient(0,canvas.height-h,0,canvas.height);g.addColorStop(0,"#b468ff");g.addColorStop(.45,"#42d8ff");g.addColorStop(1,"#1766ff");ctx.fillStyle=g;ctx.shadowColor="#55dfff";ctx.shadowBlur=8;ctx.fillRect(i*w+2,canvas.height-h-4,w-4,h)}}
 async function startAudio(){if(!playlist.length){syncStatus();return;}enforceAudible();if(!isMobile){setupAudio();if(audioCtx&&audioCtx.state==="suspended"){await audioCtx.resume();}}try{await audio.play();enforceAudible();syncStatus();}catch(e){setStatus("TAP AGAIN");console.log(e);}}
 function updateLoopButton(){loopBtn.classList.toggle("active",mode!=="none");if(mode==="all"){loopBtn.textContent="🔁";loopBtn.title="全曲ループ"}if(mode==="one"){loopBtn.textContent="🔂";loopBtn.title="1曲ループ"}if(mode==="none"){loopBtn.textContent="➡️";loopBtn.title="流しきり"}}
-function updateShuffleButton(){shuffleBtn.classList.toggle("active",shuffleMode);shuffleBtn.title=shuffleMode?"ランダム再生ON":"ランダム再生OFF"}
+function updateShuffleButton(){
+  shuffleBtn.classList.toggle("active", shuffleMode);
+  shuffleBtn.setAttribute("aria-pressed", String(shuffleMode));
+  shuffleBtn.title = shuffleMode ? "ランダム再生 ON" : "ランダム再生 OFF";
+}
 play.onclick=async()=>{if(audio.paused)await startAudio();else audio.pause()};
 prevBtn.onclick=()=>prevTrack();nextBtn.onclick=()=>nextTrack(true);
 loopBtn.onclick=()=>{if(mode==="all")mode="one";else if(mode==="one")mode="none";else mode="all";updateLoopButton();save()};
