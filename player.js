@@ -14,7 +14,7 @@ const playlist=[
   {src:"track1.mp3", title:"＃あくあ色ぱれっと", cover:"cover1.jpg"},
   {src:"track2.mp3", title:"海想列車", cover:"cover2.jpg"},
   {src:"track3.mp3", title:"墓A・RA・SHI", cover:"cover3.png"},
-  {src:"track4.mp3", title:"Howling", cover:"cover4.jpg"},
+  {src:"track4.mp3", title:"ナイトループ", cover:"mio1.png"},
   {src:"track5.mp3", title:"KON KON Beats", cover:"cover7.png"},
   {src:"track6.mp3", title:"KON KON Beats by Mio", cover:"cover6.png"},
   {src:"track7.mp3", title:"フブミオBeats", cover:"cover8.png"},
@@ -24,7 +24,7 @@ const playlist=[
   {src:"track11.mp3", title:"WAO！！", cover:"koyori1.png"},
   {src:"track12.mp3", title:"ドッタバッタ珍道中！", cover:"mio2.jpg"},
   {src:"track13.mp3", title:"深く紺になる", cover:"mio1.png"},
-  {src:"track14.mp3", title:"ナイトループ", cover:"mio1.png"}
+  {src:"track14.mp3", title:"Howling", cover:"cover4.jpg"}
 ];
 
 const MIN_VOLUME=0.1;
