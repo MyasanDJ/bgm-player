@@ -25,7 +25,7 @@ const playlist=[
   {src:"track12.mp3", title:"ナイトループ", cover:"mio1.png"},
   {src:"track13.mp3", title:"深く紺になる", cover:"mio1.png"},
   {src:"track14.mp3", title:"Howling", cover:"cover4.jpg"},
-  {src:"track15.mp3", title:"Howling by Hoshino", cover:"Hoshino.png"}
+  {src:"track15.mp3", title:"Howling by Hoshino", cover:"Hoshino.PNG"}
 ];
 
 const MIN_VOLUME=0.1;
