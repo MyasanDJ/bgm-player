@@ -559,5 +559,217 @@ body.mobile .player.mini {
   body:not(.sheetPopup) .cover {
     width: 100%;
     height: 150px;
+
+/* v6.2 smartphone layout fix
+   style.css の一番下に追加してください。
+   スマホでは小窓用CSSと通常CSSが混ざらないように強制上書きします。 */
+
+@media (max-width: 700px) {
+  html,
+  body {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  body {
+    padding: 12px 0 28px;
+  }
+
+  body .player,
+  body.mobile .player,
+  body.sheetPopup .player,
+  body.mobile.sheetPopup .player {
+    position: relative !important;
+    left: auto !important;
+    right: auto !important;
+    top: auto !important;
+    bottom: auto !important;
+    width: calc(100vw - 24px) !important;
+    max-width: 420px !important;
+    height: auto !important;
+    min-height: 0 !important;
+    margin: 0 auto !important;
+    border-radius: 22px !important;
+    overflow: hidden !important;
+  }
+
+  body .topbar,
+  body.mobile .topbar,
+  body.sheetPopup .topbar,
+  body.mobile.sheetPopup .topbar {
+    height: 46px !important;
+    padding: 0 14px !important;
+  }
+
+  body .brand,
+  body.mobile .brand,
+  body.sheetPopup .brand,
+  body.mobile.sheetPopup .brand {
+    font-size: 18px !important;
+    letter-spacing: 2px !important;
+  }
+
+  body .topButtons #moveBtn,
+  body.mobile .topButtons #moveBtn,
+  body.sheetPopup .topButtons #moveBtn,
+  body.mobile.sheetPopup .topButtons #moveBtn {
+    display: none !important;
+  }
+
+  body .content,
+  body.mobile .content,
+  body.sheetPopup .content,
+  body.mobile.sheetPopup .content {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 12px !important;
+    height: auto !important;
+    padding: 14px !important;
+  }
+
+  body .cover,
+  body.mobile .cover,
+  body.sheetPopup .cover,
+  body.mobile.sheetPopup .cover {
+    width: min(72vw, 240px) !important;
+    height: auto !important;
+    aspect-ratio: 1 / 1 !important;
+    margin: 0 auto !important;
+    align-self: center !important;
+    border-radius: 18px !important;
+    overflow: hidden !important;
+    flex-shrink: 0 !important;
+  }
+
+  body .cover img,
+  body.mobile .cover img,
+  body.sheetPopup .cover img,
+  body.mobile.sheetPopup .cover img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+  }
+
+  body .coverFallback,
+  body.mobile .coverFallback,
+  body.sheetPopup .coverFallback,
+  body.mobile.sheetPopup .coverFallback {
+    font-size: 52px !important;
+  }
+
+  body .info,
+  body.mobile .info,
+  body.sheetPopup .info,
+  body.mobile.sheetPopup .info {
+    width: 100% !important;
+    min-width: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: stretch !important;
+    justify-content: flex-start !important;
+    text-align: center !important;
+  }
+
+  body .status,
+  body.mobile .status,
+  body.sheetPopup .status,
+  body.mobile.sheetPopup .status {
+    font-size: 11px !important;
+    text-align: center !important;
+    margin-bottom: 4px !important;
+  }
+
+  body .songTitle,
+  body.mobile .songTitle,
+  body.sheetPopup .songTitle,
+  body.mobile.sheetPopup .songTitle {
+    width: 100% !important;
+    font-size: 22px !important;
+    line-height: 1.2 !important;
+    text-align: center !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+  }
+
+  body .trackInfo,
+  body.mobile .trackInfo,
+  body.sheetPopup .trackInfo,
+  body.mobile.sheetPopup .trackInfo {
+    font-size: 10px !important;
+    text-align: center !important;
+    margin-top: 4px !important;
+  }
+
+  body .format,
+  body.mobile .format,
+  body.sheetPopup .format,
+  body.mobile.sheetPopup .format,
+  body #visualizer,
+  body.mobile #visualizer,
+  body.sheetPopup #visualizer,
+  body.mobile.sheetPopup #visualizer,
+  body .volumeRow,
+  body.mobile .volumeRow,
+  body.sheetPopup .volumeRow,
+  body.mobile.sheetPopup .volumeRow {
+    display: none !important;
+  }
+
+  body .timeRow,
+  body.mobile .timeRow,
+  body.sheetPopup .timeRow,
+  body.mobile.sheetPopup .timeRow {
+    display: flex !important;
+    width: 100% !important;
+    gap: 8px !important;
+    margin-top: 10px !important;
+    font-size: 12px !important;
+  }
+
+  body .controls,
+  body.mobile .controls,
+  body.sheetPopup .controls,
+  body.mobile.sheetPopup .controls {
+    display: flex !important;
+    justify-content: center !important;
+    gap: 9px !important;
+    margin-top: 14px !important;
+  }
+
+  body .controls button,
+  body.mobile .controls button,
+  body.sheetPopup .controls button,
+  body.mobile.sheetPopup .controls button {
+    width: 44px !important;
+    height: 44px !important;
+    font-size: 17px !important;
+  }
+
+  body .mobileNote,
+  body.mobile .mobileNote,
+  body.sheetPopup .mobileNote,
+  body.mobile.sheetPopup .mobileNote {
+    display: block !important;
+    font-size: 11px !important;
+    text-align: center !important;
+    margin-top: 10px !important;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+    
   }
 }
