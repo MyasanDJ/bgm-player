@@ -30,7 +30,6 @@ const playlist=[
   {src:"track17.mp3", title:"suspect", cover:"cover9.jpeg"}
 ];
 
-
 const MIN_VOLUME=0.1;
 let savedVolume=0.8;
 
