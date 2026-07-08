@@ -51,6 +51,7 @@ function enforceAudible(){
 
 let audioCtx,analyser,source,dataArray,raf;
 let currentIndex=0,mode="all",shuffleMode=false,lastStatus="READY";
+let shuffleQueue=[];
 function guessType(src){const s=src.toLowerCase();if(s.endsWith(".mp3"))return"audio/mpeg";if(s.endsWith(".m4a"))return"audio/mp4";if(s.endsWith(".wav"))return"audio/wav";return""}
 function setStatus(t){lastStatus=t;statusText.textContent=t}
 function syncStatus(){
@@ -69,11 +70,37 @@ function loadTrack(i,autoplay=true){
   updateText();loadCover(t);seek.value=0;current.textContent="0:00";duration.textContent="0:00";
   if(autoplay)setTimeout(()=>startAudio(),160);else setTimeout(syncStatus,60);
 }
-function randomIndex(){return Math.floor(Math.random()*playlist.length)}
-function randomIndexAvoidCurrent(){if(playlist.length<=1)return 0;let n=currentIndex,g=0;while(n===currentIndex&&g<10){n=randomIndex();g++}return n}
+function makeShuffleQueue(){
+  shuffleQueue = playlist.map((_, index) => index);
+
+  for(let i = shuffleQueue.length - 1; i > 0; i--){
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffleQueue[i], shuffleQueue[j]] = [shuffleQueue[j], shuffleQueue[i]];
+  }
+
+  // 1曲目だけは、現在再生中の曲と同じになりにくくする
+  if(shuffleQueue.length > 1 && shuffleQueue[0] === currentIndex){
+    [shuffleQueue[0], shuffleQueue[1]] = [shuffleQueue[1], shuffleQueue[0]];
+  }
+}
+
+function getShuffleNextIndex(){
+  if(playlist.length <= 1){
+    return 0;
+  }
+
+  if(shuffleQueue.length === 0){
+    makeShuffleQueue();
+  }
+
+  return shuffleQueue.shift();
+}
 function nextTrack(autoplay=true){
   if(!playlist.length)return;
-  if(shuffleMode){loadTrack(randomIndexAvoidCurrent(),autoplay);return}
+  if(shuffleMode){
+  loadTrack(getShuffleNextIndex(), autoplay);
+  return;
+}
   if(currentIndex>=playlist.length-1){if(mode==="none"){setStatus("ENDED");syncStatus();return}loadTrack(0,autoplay);return}
   loadTrack(currentIndex+1,autoplay);
 }
@@ -94,10 +121,24 @@ function updateShuffleButton(){
 play.onclick=async()=>{if(audio.paused)await startAudio();else audio.pause()};
 prevBtn.onclick=()=>prevTrack();nextBtn.onclick=()=>nextTrack(true);
 loopBtn.onclick=()=>{if(mode==="all")mode="one";else if(mode==="one")mode="none";else mode="all";updateLoopButton();save()};
-shuffleBtn.onclick=()=>{shuffleMode=!shuffleMode;updateShuffleButton();save()};
+shuffleBtn.onclick=()=>{
+  shuffleMode=!shuffleMode;
+
+  if(shuffleMode){
+    makeShuffleQueue();
+  }else{
+    shuffleQueue=[];
+  }
+
+  updateShuffleButton();
+  save();
+};
 audio.addEventListener("play",()=>{enforceAudible();syncStatus();cancelAnimationFrame(raf);draw()});
 audio.addEventListener("pause",()=>{syncStatus();cancelAnimationFrame(raf);drawIdle()});
-audio.addEventListener("ended",()=>{if(mode==="one"){audio.currentTime=0;startAudio();return}if(shuffleMode){loadTrack(randomIndex(),true);return}if(mode==="all"){nextTrack(true);return}if(currentIndex<playlist.length-1)loadTrack(currentIndex+1,true);else{setStatus("ENDED");syncStatus()}});
+audio.addEventListener("ended",()=>{if(mode==="one"){audio.currentTime=0;startAudio();return}if(shuffleMode){
+  loadTrack(getShuffleNextIndex(), true);
+  return;
+}if(mode==="all"){nextTrack(true);return}if(currentIndex<playlist.length-1)loadTrack(currentIndex+1,true);else{setStatus("ENDED");syncStatus()}});
 audio.addEventListener("error",()=>{setStatus("LOAD ERROR");syncStatus()});
 audio.onloadedmetadata=()=>{seek.max=audio.duration||0;duration.textContent=fmt(audio.duration);if(audio.paused)setStatus("READY")};
 audio.ontimeupdate=()=>{seek.value=audio.currentTime||0;current.textContent=fmt(audio.currentTime)};
