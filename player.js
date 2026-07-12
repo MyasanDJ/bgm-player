@@ -29,7 +29,9 @@ const playlist=[
   {src:"track16.mp3", title:"光の軌跡", cover:"yoakenouta.jpg"},
   {src:"track17.mp3", title:"Suspect", cover:"cover9.jpeg"},
   {src:"track18.mp3", title:"かぷかぷ♡フィーバーナイト", cover:"cover18.PNG"},
-  {src:"track19.mp3", title:"夢見る空へ", cover:"cover9.jpeg"}
+  {src:"track19.mp3", title:"夢見る空へ", cover:"cover9.jpeg"},
+  {src:"track20.mp3", title:"閃光のように", cover:"fubuki1.jpg"},
+  {src:"track21.mp3", title:"閃光のように by Hoshino", cover:"Hoshino2.PNG"}
 ];
 
 const MIN_VOLUME=0.1;
