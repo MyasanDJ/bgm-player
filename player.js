@@ -32,7 +32,7 @@ const playlist=[
   {src:"track19.mp3", title:"夢見る空へ", cover:"cover9.jpeg"},
   {src:"track20.mp3", title:"閃光のように", cover:"fubuki1.jpg"},
   {src:"track21.mp3", title:"閃光のように by Hoshino", cover:"Hoshino2.PNG"},
-  {src:"track22.mp3", title:"わくわくエブリデイ", cover:"fubumio.png"}
+  {src:"track22.mp3", title:"わくわくエブリデイ", cover:"fubumio.PNG"}
 ];
 
 const MIN_VOLUME=0.1;
