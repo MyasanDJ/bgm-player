@@ -542,7 +542,7 @@ body.minimized .player {
   .cover {
     width: 100%;
     max-width: none;
-    aspect-ratio: 16 / 9;
+    aspect-ratio: 16 / 10;
   }
 }
 
