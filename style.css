@@ -469,8 +469,9 @@ body.minimized .player {
 
   .player {
     width: min(92vw, 560px);
-    min-height: 430px;
+    min-height: 460px;
     height: auto;
+    aspect-ratio: auto;
     margin: 0 auto;
     border-radius: 24px;
   }
