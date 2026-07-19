@@ -218,7 +218,7 @@ body.minimized .restoreBtn {
 .cover {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 8;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   border: 1px solid rgba(190, 240, 255, 0.24);
   border-radius: 22px;
@@ -542,7 +542,7 @@ body.minimized .player {
   .cover {
     width: 100%;
     max-width: none;
-    aspect-ratio: 16 / 8;
+    aspect-ratio: 16 / 9;
   }
 }
 
