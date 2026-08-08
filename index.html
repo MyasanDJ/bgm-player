@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#f7fcff">
+<title>Holo Playlist Player</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<button id="restoreBtn" class="restoreBtn">♪ PLAYLIST</button>
+
+<div id="player" class="player" data-track-title="Fubuking Playlist">
+  <div class="topbar">
+    <div class="brand">
+      <span class="brandMark" aria-hidden="true"><span></span></span>
+      <span class="brandText"><b>HOLO</b><em>PLAYLIST</em></span>
+    </div>
+    <div class="topButtons">
+      <button id="moveBtn" title="移動モード" aria-label="移動モード">↔</button>
+      <button id="resetBtn" title="位置リセット" aria-label="位置リセット">⌂</button>
+      <button id="miniBtn" title="最小化" aria-label="最小化">−</button>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="coverArea">
+      <div class="cover">
+        <img id="coverImg" alt="cover">
+        <div class="coverFallback">♪</div>
+      </div>
+      <div class="coverBadge">MY PLAYLIST</div>
+    </div>
+
+    <div class="info">
+      <div class="statusLine">
+        <div class="status" id="statusText">READY</div>
+        <div id="trackInfo" class="trackInfo">TRACK 1 / 2</div>
+      </div>
+
+      <div id="songTitle" class="songTitle">1曲目のタイトル</div>
+      <div class="subTitle">HOLOLIVE MUSIC SELECTION</div>
+
+      <canvas id="visualizer" width="260" height="70"></canvas>
+
+      <div class="timeRow">
+        <span id="current">0:00</span>
+        <input id="seek" type="range" min="0" value="0" aria-label="再生位置">
+        <span id="duration">0:00</span>
+      </div>
+
+      <div class="controls">
+        <button id="prev" title="前の曲" aria-label="前の曲">⏮</button>
+        <button id="play" title="再生/停止" aria-label="再生/停止">▶</button>
+        <button id="next" title="次の曲" aria-label="次の曲">⏭</button>
+        <button id="loop" class="active" title="全曲ループ" aria-label="ループ">🔁</button>
+        <button id="shuffle" title="ランダム再生OFF" aria-label="ランダム再生">🔀</button>
+      </div>
+
+      <div class="volumeRow">
+        <span class="volumeIcon">VOL</span>
+        <input id="volume" type="range" min="0" max="100" value="50" aria-label="音量">
+        <span id="volText">50%</span>
+      </div>
+      <div class="mobileNote">スマホでは端末側の音量ボタン推奨</div>
+    </div>
+  </div>
+
+  <audio id="audio" preload="auto"></audio>
+</div>
+<script src="player.js"></script>
+</body>
+</html>
