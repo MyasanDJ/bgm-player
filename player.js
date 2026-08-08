@@ -32,7 +32,7 @@ const playlist=[
 {src:"track21.mp3", title:"Doggy god's street", cover:"dog.jpg"},
 {src:"track22.mp3", title:"WAO!! (2025 ver.)", cover:"koyori1.png"},
 {src:"track23.mp3", title:"夢見る空へ", cover:"unit.jpeg"},
-{src:"track24.mp3", title:"suspect", cover:"unit.jpeg"},
+{src:"track24.mp3", title:"Suspect", cover:"unit.jpeg"},
 {src:"track25.mp3", title:"BLUE CLAPPER", cover:"unit.jpeg"},
 {src:"track26.mp3", title:"Carbonated Love", cover:"euro beat.png"},
 {src:"track27.mp3", title:"会いたくて会いたくて ~Tatsunoshin Remix~", cover:"aitakute.png"}
