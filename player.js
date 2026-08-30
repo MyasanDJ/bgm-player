@@ -38,7 +38,13 @@ const playlist=[
 {src:"track27.mp3", title:"会いたくて会いたくて ~Tatsunoshin Remix~", cover:"aitakute.png"},
 {src:"track28.mp3", title:"-ERROR/常闇トワ(cover)", cover:"towa1.jpg"},
 {src:"track29.mp3", title:"Palette", cover:"towa2.jpg"},
-{src:"track30.mp3", title:"シル・ヴ・プレジデント／白上フブキ(Cover)", cover:"siru.png"}
+{src:"track30.mp3", title:"シル・ヴ・プレジデント／白上フブキ(Cover)", cover:"siru.png"},
+{src:"track31.mp3", title:"We are GAMERS!!!!", cover:"gamers.png"},
+{src:"track32.mp3", title:"Say!ファンファーレ!", cover:"fubuki1.jpg"},
+{src:"track32'.mp3", title:"Say!ファンファーレ! hardcore", cover:"fubuki1.jpg"},
+{src:"track33.mp3", title:"夜光通信", cover:"mio1.png"},
+{src:"track34.mp3", title:"カミサマ・ネコサマ", cover:"okayu1.jpg"},
+{src:"track35.mp3", title:"ころねの最凶天災☆わんだふぉー❤わーるど", cover:"dopagaki.jpg"}
 ];
 const MIN_VOLUME=0.1;
 let savedVolume=0.8;
